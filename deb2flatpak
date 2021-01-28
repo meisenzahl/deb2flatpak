@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+import jinja2
+import os
+import sys
+
+def get_clean_value(v):
+    v = v.strip()
+
+    if v[-1] == ",":
+        return v[:-1]
+
+    return v
+
+def get_deb_control(s):
+    control = {}
+    last_key = ""
+    for line in s.split("\n"):
+        r = line.split(": ")
+        if (len(r) == 2):
+            control[r[0]] = get_clean_value(r[1])
+            last_key = r[0]
+        elif (len(r) == 1) and len(r[0].strip()) > 0:
+            value = get_clean_value(r[0])
+
+            if isinstance(control[last_key], list):
+                control[last_key].append(value)
+            else:
+                tmp = control[last_key]
+                control[last_key] = []
+                control[last_key].append(tmp)
+                control[last_key].append(value)
+
+    return control
+
+def convert(path):
+    deb_control_path = os.path.join(path, "debian", "control")
+    if not os.path.isfile(deb_control_path):
+        return
+
+    deb_control = {}
+    with open(deb_control_path, "r") as f:
+        deb_control = get_deb_control(f.read())
+
+    context = {
+        "app_id": deb_control.get("Package", ""),
+        "command": deb_control.get("Package", ""),
+        "package_module_name": deb_control.get("Package", "").split(".")[-1],
+        "modules": {}
+    }
+
+    dependencies = deb_control.get("Build-Depends", [])
+    context["modules"]["gtksourceview"] = "libgtksourceview-3.0-dev" in dependencies
+
+    template_text = open("data/package.yml.jinja2", "r").read()
+    template = jinja2.Template(template_text)
+    output = template.render(context) + "\n"
+
+    flatpak_path = os.path.join(path, deb_control.get("Package", "") + ".yml")
+    with open(flatpak_path, "w") as f:
+        f.write(output)
+
+def main():
+    args = sys.argv[1:]
+    
+    if len(args) == 0:
+        return
+
+    path = args[0]
+    if os.path.isdir(path):
+        convert(path)
+
+if __name__ == "__main__":
+    main()

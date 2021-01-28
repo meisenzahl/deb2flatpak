@@ -1,0 +1,35 @@
+app-id: {{ app_id }}
+runtime: org.gnome.Platform
+runtime-version: '3.38'
+base: io.elementary.BaseApp
+base-version: juno-20.08
+sdk: org.gnome.Sdk
+command: {{ command }}
+finish-args:
+  - '--share=ipc'
+  - '--socket=fallback-x11'
+  - '--socket=wayland'
+cleanup:
+  - '/include'
+  - '/lib/pkgconfig'
+  - '/lib/girepository-1.0'
+  - '/share/gir-1.0'
+  - '/share/man'
+  - '/share/vala'
+  - '*.la'
+  - '*.a'
+modules:
+  {%- if modules.gtksourceview %}
+  - name: gtksourceview
+    config-opts:
+    - '--disable-static'
+    sources:
+    - type: archive
+      url: https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz
+      sha256: 691b074a37b2a307f7f48edc5b8c7afa7301709be56378ccf9cc9735909077fd
+  {% endif %}
+  - name: {{ package_module_name }}
+    buildsystem: meson
+    sources:
+      - type: dir
+        path: .

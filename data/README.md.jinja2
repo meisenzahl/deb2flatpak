@@ -1,0 +1,39 @@
+<div align="center">
+  <span align="center">
+    <img width="80" height="80" class="center" src="https://raw.githubusercontent.com/elementary/icons/master/mimes/128/application-vnd.debian.binary-package.svg" alt="deb">
+    <img width="80" height="80" class="center" src="https://raw.githubusercontent.com/elementary/icons/master/actions/48/go-next.svg" alt="convert">
+    <img width="80" height="80" class="center" src="https://raw.githubusercontent.com/elementary/icons/master/mimes/128/application-vnd.flatpak.ref.svg" alt="flatpak">
+  </span>
+  <h1 align="center">deb2flatpak</h1>
+  <h3 align="center">Tool to help migrate Debian packages to Flatpak</h3>
+</div>
+
+## Setup
+
+It is recommended to use a virtual Python environment. Create one as follows:
+
+```
+$ python -m venv env
+```
+
+Activate it and install the dependencies:
+
+```
+$ source env/bin/activate
+(env) $ pip install -r requirements.txt
+```
+
+If you want to use the environment, you must activate it:
+
+```
+$ source env/bin/activate
+(env) $
+```
+
+## elementary AppCenter
+
+For testing, all apps of [elementary AppCenter](https://appcenter.elementary.io/) are built.
+
+{% for package in packages %}
+[![{{ package.id }}](https://github.com/meisenzahl/deb2flatpak/workflows/{{ package.id }}/badge.svg)](https://github.com/meisenzahl/deb2flatpak/actions?query=workflow%3A{{ package.id }})<br>
+{%- endfor -%}

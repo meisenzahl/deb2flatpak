@@ -1,0 +1,21 @@
+name: com.github.phase1geo.outliner
+
+on:
+  - push
+
+jobs:
+  com_github_phase1geo_outliner:
+    name: com.github.phase1geo.outliner
+    runs-on: ubuntu-latest
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:elementary-juno
+      options: --privileged
+    steps:
+    - name: Pull deb2flatpak ⬇️
+      uses: actions/checkout@v2
+    - name: Install Dependencies 📦
+      run: |
+        dnf install python3-pip
+        pip3 install -r requirements.txt --user
+    - name: Build Flatpak 🏗️
+      run: ./scripts/appcenter phase1geo/outliner

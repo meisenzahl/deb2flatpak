@@ -1,0 +1,366 @@
+packages:
+  - github: lainsce/aesop
+    version: 1.2.2
+  - github: dahenson/agenda
+    version: 1.1.0
+  - github: akiraux/akira
+    version: v0.0.13
+  - github: bartzaalberg/alias
+    version: 1.6.0
+  - github: z0o0p/alohomora
+    version: v1.1.0
+  - github: donadigo/appeditor
+    version: 1.1.1
+  - github: elfenware/badger
+    version: v3.3.0
+  - github: rajkumaar23/badgie
+    version: 0.2.3
+  - github: lainsce/beemy
+    version: 1.0.5
+
+  - github: tkashkin/boiler
+    version: 0.2.1
+  - github: bartzaalberg/bookmark-manager
+    version: 1.6.1
+  - github: babluboy/bookworm
+    version: 1.1.2
+  - github: mirkobrombin/bottles
+    version: 0.2.5
+  - github: alainm23/byte
+    version: 0.4.2
+  - github: linuxhubit/catfacts
+    version: 1.0.0
+  - github: robertsanseries/ciano
+    version: 0.2.4
+  - github: artemanufrij/playmyvideos
+    version: 1.1.2
+  - github: arshubham/cipher
+    version: 2.5.0
+
+  - github: cassidyjames/clairvoyant
+    version: 1.1.4
+  - github: davidmhewitt/clipped
+    version: 1.1.1
+  - github: lainsce/coin
+    version: 1.3.0
+  - github: ronnydo/colorpicker
+    version: 1.1.3
+  - github: jeremyvaartjes/comgen
+    version: 1.1.0
+  - github: rkoesters/xkcd-gtk
+    version: 1.3.2
+  - github: aggalex/contacts
+    version: 1.0.3
+  - github: cryptowyrm/copypastegrab
+    version: 1.0.0
+  - github: geigi/cozy
+    version: 0.6.12
+
+  - github: dcharles525/crypt
+    version: 1.7.0
+  - github: aimproxy.cyfrif
+    version: 0.1.7
+  - github: rickybas/date-countdown
+    version: 0.1.8
+  - github: spheras/desktopfolder
+    version: 1.1.2
+  - github: alcadica/develop
+    version: 0.23.0
+  - github: panosx2/brightness
+    version: 1.4.30
+  - github: cassidyjames/dippi
+    version: 2.7.4
+  - github: lainsce/dot-matrix
+    version: 1.2.3
+  - github: aimproxy/dotfonts
+    version: 0.1.3
+
+  - github: muriloventuroso/easyssh
+    version: 1.7.2
+  - github: donadigo/eddy
+    version: 1.3.0
+  - github: eudaldgr/elements
+    version: 0.0.5
+  - github: cjfloss/envelope
+    version: 0.0.4
+  - github: cassidyjames/ephemeral
+    version: 7.0.4
+  - github: artemanufrij/findfileconflicts
+    version: 1.1.3
+  - github: calo001/fondo
+    version: 1.5.0
+  - github: ma1onso/quotes
+    version: 0.9.9
+  - github: djaler/formatter
+    version: 0.2.3
+
+  - github: padjis/gcron
+    version: 1.0.3
+  - github: padjis/ghistory
+    version: 1.0.0
+  - github: bharatkalluri/gifup
+    version: 0.0.21
+  - github: arshubham/gitignore
+    version: 2.0.0
+  - github: linuxhubit/gitscover
+    version: 1.0.0
+  - github: muriloventuroso/givemelyrics
+    version: 0.5.0
+  - github: jeremypw/gnonograms
+    version: 1.4.3
+  - github: jmoerman/go-for-it
+    version: 1.9.0
+  - github: artemanufrij/graphui
+    version: 1.1.1
+
+  - github: mdh34/hackup
+    version: 1.1.8
+  - github: ztefn/haguichi
+    version: 1.143.0
+  - github: danrabbit/harvey
+    version: 1.0.0
+  - github: artemanufrij/hashit
+    version: 1.1.0
+  - github: manexim/home
+    version: 0.5.0
+  - github: bbuhler/hostsmanager
+    version: 2.0.6
+  - github: sgpthomas/hourglass
+    version: 1.2.3
+  - github: santileortiz/iconoscope
+    version: 0.9.7
+  - github: cassidyjames/ideogram
+    version: 1.3.3
+
+  - github: artemanufrij/imageburner
+    version: 1.0.2
+  - github: gijsgoudzwaard/image-optimizer
+    version: 0.1.17
+  - github: hezral/inspektor
+    version: 1.0.0
+  - github: alainm23/ioncolorgenerator
+    version: 0.1.2
+  - github: timecraft/js-test
+    version: 0.1.2
+  - github: lainsce/khronos
+    version: 1.0.3
+  - github: ryonakano/konbucase
+    version: 3.0.0
+  - github: linuxhubsubpixel/license
+    version: 1.0.3
+  - github: raibtoffoletto/litteris
+    version: 0.1.6
+
+  - github: skarva/lockbox
+    version: 1.2
+  - github: christophernugent/locksmith
+    version: 1.6.0
+  - github: danrabbit/lookbook
+    version: 1.1.0
+  - github: bartzaalberg/lottery
+    version: 1.6.0
+  - github: calo001/luna
+    version: 1.1.3
+  - github: naaando/lyrics
+    version: 0.7.6
+  - github: artemanufrij/playmymusic
+    version: 2.2.1
+  - github: artemanufrij/showmypictures
+    version: 0.3.0
+  - github: artemanufrij/metronome
+    version: 1.0.0
+
+  - github: phase1geo/minder
+    version: 1.11.3
+  - github: torikulhabib/mindi
+    version: 2.1.1
+  - github: matfantinel/moneta
+    version: 2.2.0
+  - github: kmal-kenneth/monilet
+    version: 0.2.2
+  - github: stsdc/monitor
+    version: 0.9.1
+  - github: efdos/mupengui
+    version: 0.8.7
+  - github: bcedu/museic
+    version: 2.1.3
+  - github: parnold-x/nasc
+    version: 0.7.5
+  - github: allen-b1/news
+    version: 1.4
+
+  - github: manexim/news
+    version: 0.1.5
+  - github: torikulhabib/niki
+    version: 0.7.36
+  - github: danrabbit/nimbus
+    version: 0.3.2
+  - github: torikulhabib/nino
+    version: 1.3.1
+  - github: lainsce/niu
+    version: 1.1.0
+  - github: tenderowl/norka
+    version: 0.6.2
+  - github: lainsce/notejot
+    version: 1.6.3
+  - github: philip-scott/notes-up
+    version: 2.0.2
+  - github: timecraft/notifier
+    version: 2.1.1
+
+  - github: babluboy/nutty
+    version: 1.1.1
+  - github: alcinnz/odysseus
+    version: 1.7.1
+  - github: cleac/olifant
+    version: 0.2.1-beta4
+  - github: hannesschulze/optimizer
+    version: 1.2.1
+  - github: phase1geo/outliner
+    version: 1.4.0
+  - github: lainsce/palaura
+    version: 1.5.1
+  - github: cassidyjames/palette
+    version: 3.2.1
+  - github: muriloventuroso/pdftricks
+    version: 0.3.0
+  - github: subhadeepjasu/pebbles
+    version: 1.0.5
+
+  - github: dbhowell/peeq
+    version: 0.5.0
+  - github: dcharles525/pho
+    version: 1.6.0
+  - github: bartzaalberg/php-tester
+    version: 1.9.0
+  - github: jeremyvaartjes/ping
+    version: 0.6
+  - github: alainm23/planner
+    version: 2.5.7
+  - github: fleury08/prettifier
+    version: 1.1.3
+  - github: cassidyjames/principles
+    version: 1.2.3
+  - github: plugarut/pwned-checker
+    version: 0.2.4
+  - github: bartzaalberg/python-tester
+    version: 1.0.1
+
+  - github: sergius02/qrit
+    version: 1.1.0
+  - github: mdh34/quickdocs
+    version: 2.2.6
+  - github: lainsce/quilter
+    version: 2.5.1
+  - github: alonsoenrique/quotes
+    version: 0.5.6
+  - github: ranfdev/raddiu
+    version: 1.1.1
+  - github: lainsce/rakugaki
+    version: 1.0.5
+  - github: bartzaalberg/recipes
+    version: 1.3.0
+  - github: ryonakano/reco
+    version: 2.4.1
+  - github: lainsce/reganam
+    version: 1.1.4
+
+  - github: artemanufrij/regextester
+    version: 1.1.0
+  - github: matfantinel/reminduck
+    version: 1.5.6
+  - github: peteruithoven/resizer
+    version: 1.1.2
+  - github: zelikos/rannum
+    version: 2.0.0
+  - github: naaando/rush
+    version: 0.2.2
+  - github: ryanafrish7/satellite
+    version: 0.1.0
+  - github: mohelm97/screenrecorder
+    version: 0.2
+  - github: artemanufrij/screencast
+    version: 1.0.0
+  - github: dr-styki/screenrec
+    version: 2.2.1
+
+  - github: alecaddd/sequeler
+    version: 0.8.0
+  - github: sergius02/sherlock
+    version: 1.2.0
+  - github: bcedu/shutdownscheduler
+    version: 1.6.3
+  - github: brendanperry/stocks
+    version: 1.0.0
+  - github: bartzaalberg/snaptastic
+    version: 1.2.1
+  - github: bytepixie/snippetpixie
+    version: 1.5.0
+  - github: treagod/spectator
+    version: 0.5.6
+  - github: philip-scott/spice-up
+    version: 1.8.2
+  - github: jeremyvaartjes/subminder
+    version: 1.2.0
+
+  - github: parnold-x/sudoku
+    version: 0.3.0
+  - github: bartzaalberg/sudokular
+    version: 1.1.0
+  - github: chasinglogic/tardis
+    version: v1.2.1
+  - github: juarezfranco/tarefas-desktop
+    version: 1.0
+  - github: alecaddd/taxi
+    version: 1.0.0
+  - github: marbetschar/time-limit
+    version: 1.4.1
+  - github: parnold-x/timer
+    version: 0.3.1
+  - github: lainsce/timetable
+    version: 1.1.0
+  - github: bleakgrey/tootle
+    version: 0.2.0
+
+  - github: davidmhewitt/torrential
+    version: 1.1.0
+  - github: rapidfingers/translator
+    version: 1.0.6
+  - github: artemanufrij/translit
+    version: 1.0.0
+  - github: louis77/tuner
+    version: 1.3.1
+  - github: manexim/typewriter
+    version: 0.4.3
+  - github: aleksandar-stefanovic/urmsimulator
+    version: 1.3.3
+  - github: bartzaalberg/vala-tester
+    version: 1.1.0
+  - github: basjam/valacompiler
+    version: 1.0.1
+  - github: bcedu/vgrive
+    version: 1.3.0
+
+  - github: bernardodsanderson/vido
+    version: 1.3.1
+  - github: needle-and-thread/vocal
+    version: 2.4.1
+  - github: bcedu/valasimplehttpserver
+    version: 1.3.5
+  - github: philip-scott/wallpaperize
+    version: 1.2.8
+  - github: ronnydo/wammer
+    version: 1.1.6
+  - github: artemanufrij/webpin
+    version: 1.0.4
+  - github: aggalex/wineglass
+    version: 1.1.2
+  - github: devalien/workspaces
+    version: 3.1.0
+  - github: writeas/writeas-gtk
+    version: 1.0.2
+
+  - github: tvale/xkcdesktop
+    version: 1.0
+  - github: lainsce/yishu
+    version: 1.2.5

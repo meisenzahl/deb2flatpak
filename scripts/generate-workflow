@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+import jinja2
+import os
+import sys
+
+from yaml import load, dump
+try:
+    from yaml import CLoader as Loader, CDumper as Dumper
+except ImportError:
+    from yaml import Loader, Dumper
+
+def write_workflow(package):
+    package_id = "com.github." + package.get("github", "").replace("/", ".")
+
+    context = {
+        "package": {
+            "github": package.get("github", ""),
+            "id": package_id,
+            "job": package_id.replace(".", "_"),
+            "version": package.get("version", ""),
+        },
+    }
+
+    path = os.path.join(".github", "workflows", package_id + ".yml")
+    template_text = open("data/workflow.yml.jinja2", "r").read()
+    template = jinja2.Template(template_text)
+    output = template.render(context) + "\n"
+
+    with open(path, "w") as f:
+        f.write(output)
+
+
+def main():
+    args = sys.argv[1:]
+
+    stream = open("data/appcenter.yml", "r")
+    data = load(stream, Loader=Loader)
+
+    for package in data.get("packages", []):
+        if len(args) == 0:
+            write_workflow(package)
+        else:
+            if args[0] == package.get("github", ""):
+                write_workflow(package)
+
+
+if __name__ == "__main__":
+    main()

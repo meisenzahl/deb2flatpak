@@ -1,0 +1,137 @@
+#!/usr/bin/env python3
+import logging
+import os
+import subprocess
+import sys
+
+from yaml import load, dump
+try:
+    from yaml import CLoader as Loader, CDumper as Dumper
+except ImportError:
+    from yaml import Loader, Dumper
+
+
+class Package:
+    def __init__(self, github, version):
+        self.github = github
+        self.version = version
+
+        self.package_id = "com.github." + github.replace("/", ".")
+
+        self.log_path = os.path.join("logs", self.package_id + ".log")
+        self.package_path = os.path.join("packages", self.package_id)
+        self.deb_packaging_path = self.package_path + "-deb-packaging"
+        self.build_path = os.path.join("build", self.package_id)
+
+        self._logger = logging.Logger(self.package_id)
+
+        format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        formatter = logging.Formatter(format)
+
+        console = logging.StreamHandler()
+        console.setFormatter(formatter)
+        console.setLevel(logging.INFO)
+        self._logger.addHandler(console)
+
+        if not os.path.isdir("logs"):
+            os.mkdir("logs")
+
+        if os.path.isfile(self.log_path):
+            os.remove(self.log_path)
+
+        fileHandler = logging.FileHandler(self.log_path)
+        fileHandler.setFormatter(formatter)
+        fileHandler.setLevel(logging.DEBUG)
+        self._logger.addHandler(fileHandler)
+
+    def _log(self, message):
+        if not os.path.isdir("logs"):
+            os.mkdir("logs")
+
+    def _run(self, cmd, exit_on_error=True):
+        self._logger.debug(cmd)
+
+        p = subprocess.Popen(cmd.split(" "), stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        output = p.communicate()[0].decode("utf-8")
+
+        if p.returncode == 0:
+            self._logger.debug(output)
+        else:
+            self._logger.error(output)
+            if exit_on_error:
+                exit(p.returncode)
+
+    def download(self):
+        if not os.path.isdir(self.package_path):
+            self._logger.info("Clone repository")
+            self._run("git clone --branch {} --depth 1 https://github.com/{} {}".format(
+                self.version,
+                self.github,
+                self.package_path
+            ))
+
+        if not os.path.isdir(os.path.join(self.package_path, "debian")):
+            self._logger.info("Debian packaging is missing")
+            self._run("git clone --branch deb-packaging --depth 1 https://github.com/{} {}".format(
+                self.github,
+                self.deb_packaging_path
+            ))
+
+            self._run("cp -r {} {}/".format(
+                os.path.join(self.deb_packaging_path, "debian"),
+                self.package_path
+            ))
+
+    def convert(self):
+        self._logger.info("Convert to flatpak")
+        self._run("./deb2flatpak {}".format(self.package_path))
+
+    def build(self):
+        self._logger.info("Build flatpak")
+        self._run("flatpak-builder --force-clean {} {}".format(
+            self.build_path,
+            os.path.join(self.package_path, self.package_id + ".yml")
+        ))
+
+
+class AppCenter:
+    def get_package(self, github):
+        stream = open("data/appcenter.yml", "r")
+        data = load(stream, Loader=Loader)
+
+        for p in data.get("packages", []):
+            if p.get("github", "") == github:
+                return Package(p.get("github", ""), p.get("version", ""))
+
+    def get_packages(self):
+        stream = open("data/appcenter.yml", "r")
+        data = load(stream, Loader=Loader)
+
+        packages = []
+        for p in data.get("packages", []):
+            packages.append(Package(p.get("github", ""), p.get("version", "")))
+
+        return packages
+
+
+def main():
+    args = sys.argv[1:]
+
+    appcenter = AppCenter()
+
+    packages = []
+    if len(args) == 0:
+        packages = appcenter.get_packages()
+    else:
+        packages = [appcenter.get_package(args[0])]
+
+    for package in packages:
+        package.download()
+
+        package.convert()
+
+        package.build()
+
+
+if __name__ == "__main__":
+    main()
