@@ -72,15 +72,23 @@ class Package:
 
         if not os.path.isdir(os.path.join(self.package_path, "debian")):
             self._logger.info("Debian packaging is missing")
-            self._run("git clone --branch deb-packaging --depth 1 https://github.com/{} {}".format(
-                self.github,
-                self.deb_packaging_path
-            ))
+            for branch in ["deb-packaging", "deb-packaging-juno"]:
+                self._logger.info("Trying branch {}".format(branch))
+                self._run("git clone --branch {} --depth 1 https://github.com/{} {}".format(
+                    branch,
+                    self.github,
+                    self.deb_packaging_path
+                ))
 
-            self._run("cp -r {} {}/".format(
-                os.path.join(self.deb_packaging_path, "debian"),
-                self.package_path
-            ))
+                if not os.path.isdir(self.deb_packaging_path):
+                    continue
+
+                self._run("cp -r {} {}/".format(
+                    os.path.join(self.deb_packaging_path, "debian"),
+                    self.package_path
+                ))
+
+                break
 
     def convert(self):
         self._logger.info("Convert to flatpak")
